@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Queue;
+import java.util.Random;
 
 public class ConnectionPoolImp {
     private static final String HOST = "localhost";
@@ -121,10 +122,11 @@ public class ConnectionPoolImp {
 
     private Connection getConnectionFromPool() throws InterruptedException {
         Connection connection = null;
+        int id = new Random().nextInt(100000);
         while (true) {
-            if(!pool.isEmpty()) {
+            if (!pool.isEmpty()) {
                 connection = pool.poll();
-                System.out.println("Pool size after giving connection : " + pool.size());
+                System.out.println("Got connection for id : " + id + " Pool size after : " + pool.size());
                 break;
             }
             System.out.println("Waiting for a connection ..");
