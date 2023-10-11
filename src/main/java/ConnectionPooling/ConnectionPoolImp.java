@@ -13,7 +13,7 @@ public class ConnectionPoolImp {
     private static final String DATABASE = "test";
     private static final String URL = "jdbc:mysql://" + HOST + "/" + DATABASE;
     private static final String USER = "root";
-    private static final String PASSWORD = "Nishantg@3105";
+    private static final String PASSWORD = "password";
     private static int LIMIT = 2;
     public static Queue<Connection> pool;
 
